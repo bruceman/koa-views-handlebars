@@ -37,6 +37,33 @@ describe('test [getViewOptions] function ', function() {
         assert.equal(partials['pages/detail'], getAbsolutePath(partialDirs, 'pages/detail', '.hbs'));
     });
 
+    it('should return expected view options when pass one folder with releated path', function() {
+        const viewRootPath = __dirname + '/fixtures';
+        const helperDirs = './helpers';
+        const partialDirs = 'views';
+
+        const viewOptions = core.getViewOptions(viewRootPath, {
+            helperDirs,
+            partialDirs
+        });
+
+        assert.equal(viewOptions.extension, 'hbs');
+        assert.equal(viewOptions.map.hbs, 'handlebars');
+
+        // helpers
+        const str = 'hello';
+        const helpers = viewOptions.options.helpers;
+        assert.equal(helpers.uppercase(str), str.toUpperCase());
+        // partials
+        const partials = viewOptions.options.partials;
+        const abPartialDirs = path.resolve(viewRootPath, partialDirs);
+        assert.equal(partials['includes/header'], getAbsolutePath(abPartialDirs, 'includes/header', '.hbs'));
+        assert.equal(partials['includes/footer'], getAbsolutePath(abPartialDirs, 'includes/footer', '.hbs'));
+        assert.equal(partials['layout/base'], getAbsolutePath(abPartialDirs, 'layout/base', '.hbs'));
+        assert.equal(partials['pages/index'], getAbsolutePath(abPartialDirs, 'pages/index', '.hbs'));
+        assert.equal(partials['pages/detail'], getAbsolutePath(abPartialDirs, 'pages/detail', '.hbs'));
+    });
+
     it('should return expected view options when pass multiple partials folders', function() {
         const partialDirs = [__dirname + '/fixtures/views/includes', __dirname + '/fixtures/views/layout', __dirname + '/fixtures/views/pages'];
 
@@ -58,6 +85,7 @@ describe('test [getViewOptions] function ', function() {
         assert.equal(partials['index'], getAbsolutePath(viewPath, 'pages/index', '.hbs'));
         assert.equal(partials['detail'], getAbsolutePath(viewPath, 'pages/detail', '.hbs'));
     });
+
 });
 
 
