@@ -5,12 +5,12 @@ Handlebars template engine middleware for `koa@2` based on `koa-views`.
 ## Installation
 
 ```sh
-npm install koa-views-handlebars
+npm install koa-views-handlebars --save
 ```
 
 ## Templating engines
 
-`koa-views-handlebars` is using [koa-views](https://github.com/queckezz/koa-views) under the hood, but provide easy way to config helpers and partails of handlebars.
+`koa-views-handlebars` is using [koa-views](https://github.com/queckezz/koa-views) under the hood, but provide easy way to config helpers and partails of [handlebars](https://github.com/wycats/handlebars.js).
 
 
 **NOTE**: you must install the `koa-views` and `handlebars` before use this middleware, add them to your package.json dependencies.
@@ -46,7 +46,7 @@ For more examples you can take a look at the [tests](./test/core.spec.js).
 * `rootPath`: Where your views are located. Must be an absolute path. All rendered views are relative to this path
 * `options` (optional)
 
-Simple example.
+Very simple example.
 ```js
 app.use(hbs(__dirname))
 ```
