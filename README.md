@@ -46,9 +46,14 @@ For more examples you can take a look at the [tests](./test/core.spec.js).
 * `rootPath`: Where your views are located. Must be an absolute path. All rendered views are relative to this path
 * `options` (optional)
 
+Simple example.
+```js
+app.use(hbs(__dirname))
+```
 
 
-* `optiosn.extension`: handelbars template file extension, default is `hbs`.
+
+* `options.extension`: handelbars template file extension, default is `hbs`.
 
 In this example, each file ending with `.html` will get rendered using the `handlebars` templating engine.
 ```js
@@ -56,7 +61,7 @@ app.use(hbs(__dirname, { extension: 'html' }))
 ```
 
 
-* `optiosn.helperDirs`: where your handlebars helpers are located, can be string (one dir) or array (multiple dirs).
+* `options.helperDirs`: where your handlebars helpers are located, can be string (one dir) or array (multiple dirs).
 
 ```js
 // helpers in one dir
@@ -72,7 +77,7 @@ app.use(hbs(__dirname , {
 ```
 
 
-* `optiosn.partialDirs`: where your handlebars partials are located, can be string (one dir) or array (multiple dirs).
+* `options.partialDirs`: where your handlebars partials are located, can be string (one dir) or array (multiple dirs).
 
 ```js
 // partials in one dir
@@ -87,7 +92,7 @@ app.use(hbs(__dirname , {
 
 ```
 
-* `optiosn.debug`: set to true will print final options passed to koa-views 
+* `options.debug`: set to true will print final options passed to koa-views 
 
 ```js
 app.use(hbs(__dirname , {

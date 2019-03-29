@@ -15,6 +15,13 @@
   ],
   "author": "bruceman",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bruceman/koa-views-handlebars"
+  },
+  "bugs": {
+    "url": "https://github.com/bruceman/koa-views-handlebars/issues"
+  },
   "dependencies": {
     "walk-sync": "^1.1.3"
   },
